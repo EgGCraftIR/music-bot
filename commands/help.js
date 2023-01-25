@@ -21,7 +21,7 @@ module.exports = {
         .setDescription(allcmds)
         .setFooter(`اگه دیدید کامندی کار نمیکنه بدونین درحال ساخته . در صورت دریافت مشکل میتوانید به سرور دیسکورد ما  جوین بدید :https://discord.gg/frVDXRAs`)
         .setAuthor('❤با تشکر از اینکه بات ما رو به سرورتون اینوایت دادید. با این کار مارو به وریفای نزدیک میکنید')
-        .setImage
+        .setImage('https://s36537.pcdn.co/wp-content/uploads/2018/11/persian-cat-face.jpg.optimal.jpg')
         if(!args[0])return message.channel.send(embed)
         else {
             let cmd = args[0]
