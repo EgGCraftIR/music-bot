@@ -17,11 +17,11 @@ module.exports = {
         })
 
         let embed = new MessageEmbed()
-        .setAuthor("Commands of "+client.user.username, "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
-        .setColor("BLUE")
+        .setColor("YELLOW")
         .setDescription(allcmds)
-        .setFooter(`ساخته شده توسط: just_amirHeHe#0485 | `)
-
+        .setFooter(`اگه دیدید کامندی کار نمیکنه بدونین درحال ساخته . در صورت دریافت مشکل میتوانید به سرور دیسکورد ما  جوین بدید :https://discord.gg/frVDXRAs`)
+        .setAuthor('❤با تشکر از اینکه بات ما رو به سرورتون اینوایت دادید. با این کار مارو به وریفای نزدیک میکنید')
+        .setImage
         if(!args[0])return message.channel.send(embed)
         else {
             let cmd = args[0]
