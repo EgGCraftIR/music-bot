@@ -7,3 +7,6 @@ module.exports = {
     usage: "",
     aliases: ["svi"],
   }}
+
+let serverEmbed = new messageEmbed()
+  serverEmbed.setColor("")
