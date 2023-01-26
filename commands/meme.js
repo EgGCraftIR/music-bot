@@ -1,11 +1,11 @@
-const { MessageEmbed, Member } = require("discord.js");
+const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   info: {
-    name: "kiss",
-    description: "To kiss your friends",
-    usage: `[member]`,
-    aliases: ["ki"],
+    name: "meme",
+    description: "To get funny meme",
+    usage: "",
+    aliases: ["me"],
   },
 
   run: async function (client, message, args) {
@@ -14,8 +14,8 @@ module.exports = {
     var permissions = 0;
     
     let meme = new MessageEmbed()
-    .setAuthor(`${client.user.tag} kissed`)
     .setColor("YELLOW")
+    .setImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPpTY4aaHcPQmXMY3xc1o4iplUmYN1XvQ_vQ&usqp=CAU')
     return message.channel.send(meme);
   },
 };
