@@ -15,7 +15,7 @@ module.exports = {
     
     let hamsar = new MessageEmbed()
     .setColor("BLUE")
-    .setImage('https://imgur.com/gallery/c1f8I9v')
+    .setImage("")
     return message.channel.send(hamsar);
   },
 };
