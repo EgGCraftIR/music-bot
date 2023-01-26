@@ -32,6 +32,16 @@ fs.readdir("./commands/", (err, files) => {
     console.log("Loading Command: "+commandName)
   });
 });
+//auto pinging
 
+let count = 0;
+setInterval(() =>
+      require('node-fetch')(procces.env.URL)
+       .then(() => console.log(`[${++count}] Kept ${procces.env.URL} alive.`))
+, 5 + 60 + 1000);
+
+
+            
+            
 //Logging in to discord
 client.login(process.env.TOKEN)
