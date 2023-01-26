@@ -1,7 +1,8 @@
 module.exports = async (client) => {
   console.log(`[API] Logged in as ${client.user.username}`);
-  client.guilds.cache.get("1025711153080434688")
-  await client.user.setActivity(`!help `, {
-    type: "WATCHING",//can be LISTENING, WATCHING, PLAYING, STREAMING
-  });
-};
+  function YousamPower() {
+      let hungry = ["!he", "!help" ]
+      let Power = Math.floor(Math.random() * hungry.length);
+      client.user.setActivity(hungry[Power], {type: "STREAMING", url: "https://www.twitch.tv/shabake4"});
+    }; setInterval(YousamPower, 2000)
+}
