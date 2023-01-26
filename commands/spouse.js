@@ -15,7 +15,8 @@ module.exports = {
     
     let hamsar = new MessageEmbed()
     .setColor("BLUE")
-    .setImage("")
+    .setAuthor('Your future wife')
+    .setImage("https://w0.peakpx.com/wallpaper/363/1010/HD-wallpaper-girl-in-black-hoodie-teenager-girl-brown-hair-black-hoodie-brown-eyes.jpg")
     return message.channel.send(hamsar);
   },
 };
