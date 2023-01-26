@@ -1,7 +1,7 @@
 module.exports = async (client) => {
-   function YousamPower() {
-      let hungry = ["!help", "!about", "!afk", "!discord", "!invite", "!loop", "!lyrics", "!nowplaying", "!pause", "!remove", "!resume", "!search", "!shuffle", "!skip",]
-      let Power = Math.floor(Math.random() * hungry.length);
-      client.user.setActivity(hungry[Power], {type: "STREAMING", url: "https://www.twitch.tv/shabake4"});
-    }; setInterval(YousamPower, 3000)
-}
+  console.log(`[API] Logged in as ${client.user.username}`);
+  client.guilds.cache.get("1025711153080434688")
+  await client.user.setActivity(`${server.memberCount}`, {
+    type: "W",//can be LISTENING, WATCHING, PLAYING, STREAMING
+  });
+};

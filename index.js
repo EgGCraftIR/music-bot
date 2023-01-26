@@ -34,13 +34,9 @@ fs.readdir("./commands/", (err, files) => {
 });
 //auto pinging
 
-let count = 0;
-setInterval(() =>
-      require('node-fetch')(procces.env.URL)
-       .then(() => console.log(`[${++count}] Kept ${procces.env.URL} alive.`))
-, 5 + 60 + 1000);
+//thats it
 
-
+// now your project will online 24/7
             
             
 //Logging in to discord
