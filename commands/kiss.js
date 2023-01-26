@@ -3,8 +3,8 @@ const { MessageEmbed, Member } = require("discord.js");
 module.exports = {
   info: {
     name: "kiss",
-    description: "To kiss your friends",
-    usage: `[member]`,
+    description: "Make the bot kiss you",
+    usage: ``,
     aliases: ["ki"],
   },
 
@@ -14,7 +14,7 @@ module.exports = {
     var permissions = 0;
     
     let meme = new MessageEmbed()
-    .setAuthor(`${client.user.tag} kissed`)
+    .setAuthor(`${client.user.tag} kissed ${user.mention}`)
     .setColor("YELLOW")
     return message.channel.send(meme);
   },
