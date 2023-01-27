@@ -14,7 +14,7 @@ module.exports = {
     var permissions = 0;
     
     let meme = new MessageEmbed()
-    .setAuthor(`${client.user.tag} kissed ${user.mention}`)
+    .setAuthor(`${client.user.tag} kissed ${client.user.id}`)
     .setColor("YELLOW")
     return message.channel.send(meme);
   },

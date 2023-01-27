@@ -6,7 +6,3 @@ module.exports = async (client) => {
       client.user.setActivity(hungry[Power], {type: "STREAMING", url: "https://www.twitch.tv/shabake4"});
     }; setInterval(YousamPower, 2000)
 }
-let count = 0;
-setInterval((
-            require('node-fetch')(procces.env.URL)
-.then(() => cons
