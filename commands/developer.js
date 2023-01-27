@@ -3,9 +3,9 @@ const { MessageEmbed } = require("discord.js");
 module.exports = {
   info: {
     name: "developer",
-    description: "To see ",
+    description: "To know the bot developer",
     usage: "",
-    aliases: ["ab"],
+    aliases: ["dev"],
   },
 
   run: async function (client, message, args) {
@@ -13,11 +13,10 @@ module.exports = {
     //set the permissions id here (https://discordapi.com/permissions.html)
     var permissions = 0;
     
-    let about = new MessageEmbed()
+    let dev = new MessageEmbed()
     .setColor("YELLOW")
-    .setDescription('Empire Cat is a Discord server that has 2 admins and 1 founder that has a bot named Persian Cat that is completely Iranian and is for entertainment and other things that will be added soon.')
-    .setAuthor('Thank you for using me')
-    .setFooter('Written by just_amirHeHe#0485')
-    return message.channel.send(about);
+    .setAuthor("just_amirHeHe#0485")
+    .setDescription("Report bot bugs to me via dm")
+    return message.channel.send(dev);
   },
 };
