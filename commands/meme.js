@@ -1,23 +1,28 @@
 const { Util, MessageEmbed } = require("discord.js");
 const ytdl = require("ytdl-core");
 const ytdlDiscord = require("ytdl-core-discord");
-const yts = require("reddit-search");
+const yts = require("yt-search");
 const fs = require('fs');
 const sendError = require("../util/error")
 
 module.exports = {
   info: {
     name: "meme",
-    description: "To see funny memes",
-    usage: "[meme name]",
+    description: "To see memes",
+    usage: "[reddit meme]",
     aliases: ["p"],
   },
 
   run: async function (client, message, args) {
-    let channel = message.member.text.channel;
-    
+    let channel = message.member.voice.channel;
+    if (!channel)return sendError("I'm sorry but you need to be in a voice channel to play music!", message.channel);
+
+    const permissions = channel.permissionsFor(message.client.user);
+    if (!permissions.has("CONNECT"))return sendError("I cannot connect to your voice channel, make sure I have the proper permissions!", message.channel);
+    if (!permissions.has("SPEAK"))return sendError("I cannot speak in this voice channel, make sure I have the proper permissions!", message.channel);
+
     var searchString = args.join(" ");
-    
+    if (!searchString)return sendError("You didn't poivide want i want to play", message.channel);
    	const url = args[0] ? args[0].replace(/<(.+)>/g, "$1") : "";
    var serverQueue = message.client.queue.get(message.guild.id);
 
@@ -155,3 +160,5 @@ stream.on('error', function(er)  {
 },
 
 };
+
+  };
