@@ -13,11 +13,6 @@ module.exports = {
     //set the permissions id here (https://discordapi.com/permissions.html)
     var permissions = 0;
     
-    let about = new MessageEmbed()
-    .setColor("YELLOW")
-    .setAuthor('PersianCat Discord Server Link')
-    .setFooter('thank you for using me')
-    .setDescription('https://discord.gg/frVDXRAs')
-    return message.channel.send(about);
+   message.channel.send('https://discord.gg/X4gEWUdZ')
   },
 };
