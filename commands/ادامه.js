@@ -3,8 +3,8 @@ const sendError = require("../util/error");
 
 module.exports = {
   info: {
-    name: "resume",
-    description: "To resume the paused music",
+    name: "ادامه",
+    description: "برای ادامه پخش اهنگ",
     usage: "",
     aliases: [],
   },
@@ -15,11 +15,11 @@ module.exports = {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume();
       let xd = new MessageEmbed()
-      .setDescription("▶ Resumed the music for you!")
+      .setDescription("▶ موزیک برای شما ادامه داده شد!")
       .setColor("YELLOW")
-      .setAuthor("Music has been Resumed!", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
+      .setAuthor("موزیک ادامه داده شد!", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
       return message.channel.send(xd);
     }
-    return sendError("There is nothing playing in this server.", message.channel);
+    return sendError("کسی داخل این سرور نیست.", message.channel);
   },
 };

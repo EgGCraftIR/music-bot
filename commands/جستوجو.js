@@ -20,21 +20,21 @@ module.exports = {
 
     const permissions = channel.permissionsFor(message.client.user);
     if (!permissions.has("CONNECT"))return sendError("من دسترسی به جوین به ویس چنل را ندارم!", message.channel);
-    if (!permissions.has("SPEAK"))return sendError("I cannot speak in this voice channel, make sure I have the proper permissions!", message.channel);
+    if (!permissions.has("SPEAK"))return sendError("من نمیتوانم موزیک پخش کنم!", message.channel);
 
     var searchString = args.join(" ");
-    if (!searchString)return sendError("You didn't poivide want i want to search", message.channel);
+    if (!searchString)return sendError("تو نمی خواستی من می خواهم جستجو کنم", message.channel);
 
     var serverQueue = message.client.queue.get(message.guild.id);
     try {
            var searched = await YouTube.search(searchString, { limit: 10 });
-          if (searched[0] == undefined)return sendError("Looks like i was unable to find the song on YouTube", message.channel);
+          if (searched[0] == undefined)return sendError("من نمی توانم اهنگ را پیدا کنم", message.channel);
                     let index = 0;
                     let embedPlay = new MessageEmbed()
                         .setColor("BLUE")
-                        .setAuthor(`Results for \"${args.join(" ")}\"`, message.author.displayAvatarURL())
+                        .setAuthor(`نتیجه ها برای \"${args.join(" ")}\"`, message.author.displayAvatarURL())
                         .setDescription(`${searched.map(video2 => `**\`${++index}\`  |** [\`${video2.title}\`](${video2.url}) - \`${video2.durationFormatted}\``).join("\n")}`)
-                        .setFooter("Type the number of the song to add it to the playlist");
+                        .setFooter("تعداد عدد ها را برای اضافه کردن به صف انتخاب کنید");
                     // eslint-disable-next-line max-depth
                     message.channel.send(embedPlay).then(m => m.delete({
                         timeout: 15000
@@ -50,7 +50,7 @@ module.exports = {
                         return message.channel.send({
                             embed: {
                                 color: "RED",
-                                description: "Nothing has been selected within 20 seconds, the request has been canceled."
+                                description: "پس از 20 ثانیه کسی موافق نبود."
                             }
                         });
                     }
@@ -62,7 +62,7 @@ module.exports = {
                     return message.channel.send({
                         embed: {
                             color: "RED",
-                            description: "🆘  **|**  I could not obtain any search results"
+                            description: "🆘  **|**  من نتوانستم هیچ نتیجه جستجویی را بدست بیاورم"
                         }
                     });
                 }
@@ -84,13 +84,12 @@ module.exports = {
     if (serverQueue) {
       serverQueue.songs.push(song);
       let thing = new MessageEmbed()
-      .setAuthor("Song has been added to queue", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
+      .setAuthor("اهنگ به صف اضافه شد", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
       .setThumbnail(song.img)
       .setColor("YELLOW")
-      .addField("Name", song.title, true)
-      .addField("Duration", song.duration, true)
-      .addField("Requested by", song.req.tag, true)
-      .setFooter(`Views: ${song.views} | ${song.ago}`)
+      .addField("اسم", song.title, true)
+      .addField("", song.duration, true)
+      .addField("درخواست شده توسط", song.req.tag, true)
       return message.channel.send(thing);
     }
 
@@ -115,7 +114,7 @@ module.exports = {
     var online = afk[message.guild.id]
     if (!song){
       if (!online.afk) {
-        sendError("Leaving the voice channel because I think there are no songs in the queue. If you like the bot stay 24/7 in voice channel run `!afk`\n\nThank you for using my code! [GitHub](https://github.com/SudhanPlayz/Discord-MusicBot)", message.channel)
+        sendError("خروج از کانال صدا چون فکر می کنم آهنگی در صف وجود ندارد. اگر ربات را دوست دارید 24 ساعته در کانال صوتی اجرا کنید ", message.channel)
         message.guild.me.voice.channel.leave();//If you want your bot stay in vc 24/7 remove this line :D
         message.client.queue.delete(message.guild.id);
       }
@@ -130,7 +129,7 @@ stream.on('error', function(er)  {
         if (queue) {
         queue.songs.shift();
         play(queue.songs[0]);
-  	  return sendError(`An unexpected error has occurred.\nPossible type \`${er}\``, message.channel)
+  	  return sendError(`یک خطای غیرمنتظره رخ داده است \`${er}\``, message.channel)
 
        }
       }
@@ -150,13 +149,11 @@ stream.on('error', function(er)  {
 
       dispatcher.setVolumeLogarithmic(queue.volume / 100);
       let thing = new MessageEmbed()
-      .setAuthor("Started Playing Music!", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
+      .setAuthor("پخش اهنگ شروع شد!", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
       .setThumbnail(song.img)
       .setColor("BLUE")
-      .addField("Name", song.title, true)
-      .addField("Duration", song.duration, true)
-      .addField("Requested by", song.req.tag, true)
-      .setFooter(`Views: ${song.views} | ${song.ago}`)
+      .addField("اسم", song.title, true)
+      .addField("در خواست شده توسط", song.req.tag, true)
       queue.textChannel.send(thing);
     };
 
@@ -166,10 +163,10 @@ stream.on('error', function(er)  {
       channel.guild.voice.setSelfDeaf(true)
       play(queueConstruct.songs[0]);
     } catch (error) {
-      console.error(`I could not join the voice channel: ${error}`);
+      console.error(`من نتوانستم به کانال صوتی بپیوندم: ${error}`);
       message.client.queue.delete(message.guild.id);
       await channel.leave();
-      return sendError(`I could not join the voice channel: ${error}`, message.channel);
+      return sendError(`من نتوانستم به کانال صوتی بپیوندم: ${error}`, message.channel);
     }
  
   },
