@@ -5,9 +5,9 @@ const fs = require('fs');
 
 module.exports = {
   info: {
-    name: "afk",
+    name: "ایافکی",
     description: "24/7",
-    usage: "[afk]",
+    usage: "[کاری که برای انجام ان ای اف کی میشوید]",
     aliases: ["24/7"],
   },
 
@@ -22,13 +22,13 @@ module.exports = {
              message.channel.send({
                 embed: {
                     color: "GREEN",
-                    description: `💤  **|**  AFK is **\`${serverQueue.afk === true ? "enabled" : "disabled"}\`**`
+                    description: `💤  **|**  ای اف کی **\`${serverQueue.afk === true ? "فعال شد" : "غیر فعال"}\`**`
                 }
             });
             return  fs.writeFile("./afk.json", JSON.stringify(afk), (err) => {
         if (err) console.error(err);
     });
         };
-    return sendError("There is nothing playing in this server.", message.channel);
+    return sendError("کسی داخل این سرور نیست.", message.channel);
   },
 };

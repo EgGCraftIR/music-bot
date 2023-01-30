@@ -3,8 +3,8 @@ const sendError = require("../util/error");
 
 module.exports = {
   info: {
-    name: "volume",
-    description: "To change the server song queue volume",
+    name: "صدا",
+    description: "برای کنتر",
     usage: "[volume]",
     aliases: ["v", "vol"],
   },
