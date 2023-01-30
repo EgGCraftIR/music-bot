@@ -2,8 +2,8 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   info: {
-    name: "about",
-    description: "To see about Team Cat Empire",
+    name: "درباره",
+    description: "برای اشن",
     usage: "",
     aliases: ["ab"],
   },

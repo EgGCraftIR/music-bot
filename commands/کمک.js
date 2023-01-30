@@ -2,10 +2,10 @@ const { MessageEmbed } = require('discord.js')
 
 module.exports = {
     info: {
-        name: "help",
-        description: "To show all commands",
+        name: "کمک",
+        description: "برای دیدن تمامی دستورات بات ",
         usage: "[command]",
-        aliases: ["commands", "help me", "pls help"]
+        aliases: ["دستورات", "کمک کن", "لطفا کمک کن"]
     },
 
     run: async function(client, message, args){
