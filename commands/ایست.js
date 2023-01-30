@@ -13,7 +13,7 @@ module.exports = {
     const channel = message.member.voice.channel
     if (!channel)return sendError("شما باید داخل ویس چنل باشید!", message.channel);
     const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue)return sendError("کسی به متوقف کردن موزیک خوش نیست.", message.channel);
+    if (!serverQueue)return sendError("موزیکی درحال پخش نیست.", message.channel);
    if(!serverQueue.connection)return
 if(!serverQueue.connection.dispatcher)return
      try{

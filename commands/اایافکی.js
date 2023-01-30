@@ -22,7 +22,7 @@ module.exports = {
              message.channel.send({
                 embed: {
                     color: "GREEN",
-                    description: `💤  **|**  ای اف کی **\`${serverQueue.afk === true ? "فعال شد" : "غیر فعال"}\`**`
+                    description: `💤  **|**  ای اف کی **\`${serverQueue.afk === true ? " فعال شد" : "غیر فعال شد"}\`**`
                 }
             });
             return  fs.writeFile("./afk.json", JSON.stringify(afk), (err) => {

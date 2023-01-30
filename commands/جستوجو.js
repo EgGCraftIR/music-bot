@@ -9,7 +9,7 @@ const fs = require('fs');
 module.exports = {
   info: {
     name: "جستجو",
-    description: "برای جستوجپ اهنگ ها",
+    description: "برای جستوجوی اهنگ ها",
     usage: "<اهنگ>",
     aliases: ["جس"],
   },
