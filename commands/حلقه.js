@@ -3,10 +3,10 @@ const sendError = require("../util/error");
 
 module.exports = {
   info: {
-    name: "loop",
-    description: "Toggle music loop",
-    usage: "loop",
-    aliases: ["l"],
+    name: "حلقه",
+    description: "حلقه موسیقی را تغییر دهید",
+    usage: "حلقه",
+    aliases: ["حل"],
   },
 
   run: async function (client, message, args) {
@@ -16,10 +16,10 @@ module.exports = {
             return message.channel.send({
                 embed: {
                     color: "GREEN",
-                    description: `🔁  **|**  Loop is **\`${serverQueue.loop === true ? "enabled" : "disabled"}\`**`
+                    description: `🔁  **|**  حلقه **\`${serverQueue.loop === true ? "فعال شد" : "غیر فعال شد"}\`**`
                 }
             });
         };
-    return sendError("There is nothing playing in this server.", message.channel);
+    return sendError("هیچ چیزی در این سرور پخش نمی شود.", message.channel);
   },
 };

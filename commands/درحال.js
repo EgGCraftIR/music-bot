@@ -3,10 +3,10 @@ const sendError = require("../util/error")
 
 module.exports = {
   info: {
-    name: "nowplaying",
-    description: "To show the music which is currently playing in this server",
+    name: "درحال",
+    description: "برای پخش موزیک فوری",
     usage: "",
-    aliases: ["np"],
+    aliases: [],
   },
 
   run: async function (client, message, args) {
@@ -14,13 +14,11 @@ module.exports = {
     if (!serverQueue) return sendError("There is nothing playing in this server.", message.channel);
     let song = serverQueue.songs[0]
     let thing = new MessageEmbed()
-      .setAuthor("Now Playing", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
+      .setAuthor("الان پخش می شود", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
       .setThumbnail(song.img)
       .setColor("BLUE")
-      .addField("Name", song.title, true)
-      .addField("Duration", song.duration, true)
-      .addField("Requested by", song.req.tag, true)
-      .setFooter(`Views: ${song.views} | ${song.ago}`)
+      .addField("اسم", song.title, true)
+      .addField("درخواست شده توسط", song.req.tag, true)
     return message.channel.send(thing)
   },
 };
