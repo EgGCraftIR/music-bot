@@ -7,22 +7,22 @@ const sendError = require("../util/error")
 
 module.exports = {
   info: {
-    name: "play",
-    description: "To play songs :D",
-    usage: "<YouTube_URL> | <song_name>",
+    name: "پخش",
+    description: "پخش اهنگ",
+    usage: "<یو ار ال یوتیوب> | <اسم اهنگ>",
     aliases: ["p"],
   },
 
   run: async function (client, message, args) {
     let channel = message.member.voice.channel;
-    if (!channel)return sendError("I'm sorry but you need to be in a voice channel to play music!", message.channel);
+    if (!channel)return sendError("متاسفم اما برای پخش موسیقی باید در یک کانال صوتی باشید!", message.channel);
 
     const permissions = channel.permissionsFor(message.client.user);
-    if (!permissions.has("CONNECT"))return sendError("I cannot connect to your voice channel, make sure I have the proper permissions!", message.channel);
-    if (!permissions.has("SPEAK"))return sendError("I cannot speak in this voice channel, make sure I have the proper permissions!", message.channel);
+    if (!permissions.has("CONNECT"))return sendError("من نمی توانم به کانال صوتی شما متصل شوم، مطمئن شوید که مجوزهای لازم را دارم!", message.channel);
+    if (!permissions.has("SPEAK"))return sendError("من نمی توانم در این کانال صوتی صحبت کنم، مطمئن شوید که مجوزهای لازم را دارم!", message.channel);
 
     var searchString = args.join(" ");
-    if (!searchString)return sendError("You didn't poivide want i want to play", message.channel);
+    if (!searchString)return sendError("تو نمی خواستی من می خواهم بازی کنم", message.channel);
    	const url = args[0] ? args[0].replace(/<(.+)>/g, "$1") : "";
    var serverQueue = message.client.queue.get(message.guild.id);
 
@@ -31,7 +31,7 @@ module.exports = {
     if (url.match(/^(https?:\/\/)?(www\.)?(m\.)?(youtube\.com|youtu\.?be)\/.+$/gi)) {
        try {
           songInfo = await ytdl.getInfo(url)
-          if(!songInfo)return sendError("Looks like i was unable to find the song on YouTube", message.channel);
+          if(!songInfo)return sendError("به نظر می رسد نتوانستم آهنگ را در یوتیوب پیدا کنم", message.channel);
         song = {
        id: songInfo.videoDetails.videoId,
        title: songInfo.videoDetails.title,
@@ -51,7 +51,7 @@ module.exports = {
     }else {
       try {
         var searched = await yts.search(searchString);
-    if(searched.videos.length === 0)return sendError("Looks like i was unable to find the song on YouTube", message.channel)
+    if(searched.videos.length === 0)return sendError("به نظر می رسد نتوانستم آهنگ را در یوتیوب پیدا کنم", message.channel)
     
      songInfo = searched.videos[0]
         song = {
@@ -73,13 +73,11 @@ module.exports = {
     if (serverQueue) {
       serverQueue.songs.push(song);
       let thing = new MessageEmbed()
-      .setAuthor("Song has been added to queue", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
+      .setAuthor("اهنگ به صف اضافه شد", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
       .setThumbnail(song.img)
       .setColor("YELLOW")
-      .addField("Name", song.title, true)
-      .addField("Duration", song.duration, true)
-      .addField("Requested by", song.req.tag, true)
-      .setFooter(`Views: ${song.views} | ${song.ago}`)
+      .addField("اسم", song.title, true)
+      .addField("درخواست شده توسط", song.req.tag, true)
       return message.channel.send(thing);
     }
 
@@ -115,7 +113,7 @@ stream.on('error', function(er)  {
         if (queue) {
         queue.songs.shift();
         play(queue.songs[0]);
-  	  return sendError(`An unexpected error has occurred.\nPossible type \`${er}\``, message.channel)
+  	  return sendError(`یک خطای غیرمنتظره رخ داده است.\nنوع احتمالی \`${er}\``, message.channel)
           }
         }
     });
@@ -134,13 +132,11 @@ stream.on('error', function(er)  {
 
       dispatcher.setVolumeLogarithmic(queue.volume / 100);
       let thing = new MessageEmbed()
-      .setAuthor("Started Playing Music!", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
+      .setAuthor("پخش  اهنگ شروع شد", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
       .setThumbnail(song.img)
       .setColor("BLUE")
-      .addField("Name", song.title, true)
-      .addField("Duration", song.duration, true)
-      .addField("Requested by", song.req.tag, true)
-      .setFooter(`Views: ${song.views} | ${song.ago}`)
+      .addField("اسم", song.title, true)
+      .addField("درخواست شده توسط", song.req.tag, true)
       queue.textChannel.send(thing);
     };
 
@@ -149,10 +145,10 @@ stream.on('error', function(er)  {
       queueConstruct.connection = connection;
       play(queueConstruct.songs[0]);
     } catch (error) {
-      console.error(`I could not join the voice channel: ${error}`);
+      console.error(`من نتوانستم به کانال صوتی بپیوندم: ${error}`);
       message.client.queue.delete(message.guild.id);
       await channel.leave();
-      return sendError(`I could not join the voice channel: ${error}`, message.channel);
+      return sendError(`من نتوانستم به کانال صوتی بپیوندم: ${error}`, message.channel);
     }
   
 
