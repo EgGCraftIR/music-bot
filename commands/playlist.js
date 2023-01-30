@@ -11,10 +11,10 @@ const fs = require('fs');
 
 module.exports = {
 	info: {
-		name: "playlist",
-		description: "To play songs :D",
-		usage: "<YouTube Playlist URL | Playlist Name>",
-		aliases: ["pl"],
+		name: "فهرست",
+		description: "برای پخش موزیک",
+		usage: "<یو ار ال یوتیوب | اسم پلی لیست چنل یوتیوب>",
+		aliases: [],
 	},
 
 	run: async function (client, message, args) {
@@ -23,10 +23,10 @@ module.exports = {
 		const url = args[0] ? args[0].replace(/<(.+)>/g, "$1") : "";
 		var searchString = args.join(" ");
 		const permissions = channel.permissionsFor(message.client.user);
-		if (!permissions.has("CONNECT")) return sendError("I cannot connect to your voice channel, make sure I have the proper permissions!", message.channel);
-		if (!permissions.has("SPEAK")) return sendError("I cannot speak in this voice channel, make sure I have the proper permissions!", message.channel);
+		if (!permissions.has("CONNECT")) return sendError("من نمی توانم به کانال صوتی شما متصل شوم، مطمئن شوید که مجوزهای لازم را دارم!", message.channel);
+		if (!permissions.has("SPEAK")) return sendError("نمی توانم در این کانال صوتی صحبت کنم، مطمئن شوید که مجوزهای مناسب را دارم!", message.channel);
 
-		if (!searchString||!url) return sendError(`Usage: ${message.client.config.prefix}playlist <YouTube Playlist URL | Playlist Name>`, message.channel);
+		if (!searchString||!url) return sendError(`استفاده کنید از: ${message.client.config.prefix}playlist <YouTube Playlist URL | Playlist Name>`, message.channel);
 		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
 			try {
 				const playlist = await ytpl(url.split("list=")[1]);

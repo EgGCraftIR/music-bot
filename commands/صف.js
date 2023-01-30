@@ -3,20 +3,20 @@ const sendError = require("../util/error");
 
 module.exports = {
   info: {
-    name: "queue",
-    description: "To show the server songs queue",
+    name: "صف",
+    description: "برای دیدن صف موزیک",
     usage: "",
-    aliases: ["q", "list", "songlist", "song-list"],
+    aliases: [],
   },
 
   run: async function (client, message, args) {
  
   const permissions = message.channel.permissionsFor(message.client.user);
     if (!permissions.has(["MANAGE_MESSAGES", "ADD_REACTIONS"]))
-      return sendError("Missing permission to manage messages or add reactions",message.channel);
+      return sendError("مجوز مدیریت پیام ها یا افزودن واکنش ها را از دست داده است",message.channel);
 
     const queue = message.client.queue.get(message.guild.id);
-    if (!queue) return sendError("There is nothing playing in this server.",message.channel)
+    if (!queue) return sendError("هیچ چیزی در این سرور پخش نمی شود.",message.channel)
 
     let currentPage = 0;
     const embeds = generateQueueEmbed(message, queue.songs);
@@ -77,15 +77,15 @@ function generateQueueEmbed(message, queue) {
   
     const serverQueue =message.client.queue.get(message.guild.id);
     const embed = new MessageEmbed()
-     .setAuthor("Server Songs Queue", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
+     .setAuthor("صف موزیک ها", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
     .setThumbnail(message.guild.iconURL())
     .setColor("BLUE")
     .setDescription(`${info}`)
-    .addField("Now Playing", `[${queue[0].title}](${queue[0].url})`, true)
-    .addField("Text Channel", serverQueue.textChannel, true)
-    .addField("Voice Channel", serverQueue.voiceChannel, true)
-    .setFooter("Currently Server Volume is "+serverQueue.volume)
-     if(serverQueue.songs.length === 1)embed.setDescription(`No songs to play next add songs by \`\`${message.client.config.prefix}play <song_name>\`\``)
+    .addField("الان پخش می شود", `[${queue[0].title}](${queue[0].url})`, true)
+    .addField("چنل تکست", serverQueue.textChannel, true)
+    .addField("چنل ویس", serverQueue.voiceChannel, true)
+    .setFooter("صدا "+serverQueue.volume)
+     if(serverQueue.songs.length === 1)embed.setDescription(`آهنگی برای پخش وجود ندارد \`\`${message.client.config.prefix}play <song_name>\`\``)
 
     embeds.push(embed);
   }
