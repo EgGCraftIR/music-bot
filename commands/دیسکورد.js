@@ -2,10 +2,10 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   info: {
-    name: "discord",
-    description: "To get Discord link",
+    name: "دیسکورد",
+    description: "برای دریافت لینک دیسکورد",
     usage: "",
-    aliases: ["d"],
+    aliases: ["د"],
   },
 
   run: async function (client, message, args) {

@@ -2,10 +2,10 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   info: {
-    name: "developer",
-    description: "To know the bot developer",
+    name: "سازنده",
+    description: "برای شناخت سازنده بات",
     usage: "",
-    aliases: ["dev"],
+    aliases: ["ساز"],
   },
 
   run: async function (client, message, args) {
@@ -16,7 +16,7 @@ module.exports = {
     let dev = new MessageEmbed()
     .setColor("YELLOW")
     .setAuthor("just_amirHeHe#0485")
-    .setDescription("Report bot bugs to me via dm")
+    .setDescription("اشکالات بات را در دی ام من گزارش بدید")
     return message.channel.send(dev);
   },
 };

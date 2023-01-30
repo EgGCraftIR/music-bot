@@ -3,17 +3,17 @@ const sendError = require("../util/error");
 
 module.exports = {
   info: {
-    name: "stop",
-    description: "To stop the music and clearing the queue",
+    name: "ایست",
+    description: "برای متوقف کردن پخش موزیک",
     usage: "",
     aliases: [],
   },
 
   run: async function (client, message, args) {
     const channel = message.member.voice.channel
-    if (!channel)return sendError("I'm sorry but you need to be in a voice channel to play music!", message.channel);
+    if (!channel)return sendError("شما باید داخل ویس چنل باشید!", message.channel);
     const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue)return sendError("There is nothing playing that I could stop for you.", message.channel);
+    if (!serverQueue)return sendError("کسی به متوقف کردن موزیک .", message.channel);
    if(!serverQueue.connection)return
 if(!serverQueue.connection.dispatcher)return
      try{
