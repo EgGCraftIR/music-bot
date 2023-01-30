@@ -3,15 +3,15 @@ const sendError = require("../util/error");
 
 module.exports = {
   info: {
-    name: "shuffle",
-    description: "Shuffle queue",
-    usage: "[shuffle]",
-    aliases: ["shuffle"],
+    name: "برزدن",
+    description: "بر زدن صف",
+    usage: "[بر زدن]",
+    aliases: ["برز"],
   },
 
   run: async function (client, message, args) {
     const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue) return sendError("There is no queue.",message.channel).catch(console.error);
+    if (!serverQueue) return sendError("صفی وجود ندارد.",message.channel).catch(console.error);
 try{
     let songs = serverQueue.songs;
     for (let i = songs.length - 1; i > 1; i--) {
@@ -24,7 +24,7 @@ try{
       } catch (error) {
         message.guild.me.voice.channel.leave();
         message.client.queue.delete(message.guild.id);
-        return sendError(`:notes: The player has stopped and the queue has been cleared.: \`${error}\``, message.channel);
+        return sendError(`:notes: بازیکن صف را متوقف کرد.: \`${error}\``, message.channel);
      }
   },
 };

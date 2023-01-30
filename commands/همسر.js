@@ -2,10 +2,10 @@ const { MessageEmbed } = require("discord.js");
 
 module.exports = {
   info: {
-    name: "spouse",
-    description: "To view your Future wife",
+    name: "همسر",
+    description: "برای دیدن همسر اینده شما",
     usage: "",
-    aliases: 'sp',
+    aliases: 'هم',
   },
 
   run: async function (client, message, args) {
@@ -15,7 +15,7 @@ module.exports = {
     
     let hamsar = new MessageEmbed()
     .setColor("BLUE")
-    .setAuthor('Your future wife')
+    .setAuthor('هسمر شما')
     .setImage("https://w0.peakpx.com/wallpaper/363/1010/HD-wallpaper-girl-in-black-hoodie-teenager-girl-brown-hair-black-hoodie-brown-eyes.jpg")
     return message.channel.send(hamsar);
   },

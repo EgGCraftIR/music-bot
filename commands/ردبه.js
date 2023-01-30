@@ -3,10 +3,10 @@ const sendError = require("../util/error");
 
 module.exports = {
   info: {
-    name: "skipto",
-    description: "Skip to the selected queue number",
-    usage: "skipto <number>",
-    aliases: ["st"],
+    name: "ردبه",
+    description: "برای اسکیپ کردن تعداد  موزیک های در صف",
+    usage: "ردبه >تعداد>",
+    aliases: ["ردب"],
   },
 
   run: async function (client, message, args) {
@@ -14,16 +14,16 @@ module.exports = {
       return message.channel.send({
                         embed: {
                             color: "GREEN",
-                            description: `**Usage**: \`${client.config.prefix}skipto <number>\``
+                            description: `**استفاده**: \`${client.config.prefix}skipto <number>\``
                         }
    
                    }).catch(console.error);
         
 
     const queue = message.client.queue.get(message.guild.id);
-    if (!queue) return sendError("There is no queue.",message.channel).catch(console.error);
+    if (!queue) return sendError("صفی یافت نشد.",message.channel).catch(console.error);
     if (args[0] > queue.songs.length)
-      return sendError(`The queue is only ${queue.songs.length} songs long!`,message.channel).catch(console.error);
+      return sendError(`این صف فقط اهنگ ${queue.songs.length} را دارد!`,message.channel).catch(console.error);
 
     queue.playing = true;
 
@@ -39,13 +39,13 @@ module.exports = {
       }catch (error) {
         queue.voiceChannel.leave()
         message.client.queue.delete(message.guild.id);
-       return sendError(`:notes: The player has stopped and the queue has been cleared.: ${error}`, message.channel);
+       return sendError(`:notes: بازیکن صف را از بین برد.: ${error}`, message.channel);
       }
     
     queue.textChannel.send({
                         embed: {
                             color: "GREEN",
-                            description: `${message.author} ⏭ skipped \`${args[0] - 1}\` songs`
+                            description: `${message.author} ⏭ رد کرد \`${args[0] - 1}\` اهنگ ها را`
                         }
    
                    }).catch(console.error);

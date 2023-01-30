@@ -13,7 +13,7 @@ module.exports = {
     const channel = message.member.voice.channel
     if (!channel)return sendError("شما باید داخل ویس چنل باشید!", message.channel);
     const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue)return sendError("کسی به متوقف کردن موزیک .", message.channel);
+    if (!serverQueue)return sendError("کسی به متوقف کردن موزیک خوش نیست.", message.channel);
    if(!serverQueue.connection)return
 if(!serverQueue.connection.dispatcher)return
      try{
@@ -21,7 +21,7 @@ if(!serverQueue.connection.dispatcher)return
       } catch (error) {
         message.guild.me.voice.channel.leave();
         message.client.queue.delete(message.guild.id);
-        return sendError(`:notes: The player has stopped and the queue has been cleared.: ${error}`, message.channel);
+        return sendError(`:notes: بازیکن موزیک را متوقف کرد.: ${error}`, message.channel);
       }
     message.client.queue.delete(message.guild.id);
     serverQueue.songs = [];

@@ -8,18 +8,18 @@ const fs = require('fs');
 
 module.exports = {
   info: {
-    name: "search",
-    description: "To search songs :D",
-    usage: "<song_name>",
-    aliases: ["sc"],
+    name: "جستجو",
+    description: "برای جستوجپ اهنگ ها",
+    usage: "<اهنگ>",
+    aliases: ["جس"],
   },
 
   run: async function (client, message, args) {
     let channel = message.member.voice.channel;
-    if (!channel)return sendError("I'm sorry but you need to be in a voice channel to play music!", message.channel);
+    if (!channel)return sendError("شما باید داخل ویس چنل باشید!", message.channel);
 
     const permissions = channel.permissionsFor(message.client.user);
-    if (!permissions.has("CONNECT"))return sendError("I cannot connect to your voice channel, make sure I have the proper permissions!", message.channel);
+    if (!permissions.has("CONNECT"))return sendError("من دسترسی به جوین به ویس چنل را ندارم!", message.channel);
     if (!permissions.has("SPEAK"))return sendError("I cannot speak in this voice channel, make sure I have the proper permissions!", message.channel);
 
     var searchString = args.join(" ");

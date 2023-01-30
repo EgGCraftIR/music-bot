@@ -3,10 +3,10 @@ const sendError = require("../util/error");
 
 module.exports = {
   info: {
-    name: "skip",
-    description: "To skip the current music",
+    name: "رد",
+    description: "برای رد کردن اهنگ انخاب شده",
     usage: "",
-    aliases: ["s"],
+    aliases: ["ر"],
   },
 
   run: async function (client, message, args) {
