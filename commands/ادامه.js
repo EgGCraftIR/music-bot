@@ -20,6 +20,6 @@ module.exports = {
       .setAuthor("موزیک ادامه داده شد!", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
       return message.channel.send(xd);
     }
-    return sendError("کسی داخل این سرور نیست.", message.channel);
+    return sendError("اهنگی در این سرور پخش نمی شود.", message.channel);
   },
 };

@@ -11,18 +11,18 @@ module.exports = {
 
   run: async function (client, message, args) {
     const channel = message.member.voice.channel
-    if (!channel)return sendError("I'm sorry but you need to be in a voice channel to play music!", message.channel);
+    if (!channel)return sendError("متاسفم اما برای پخش موسیقی باید در یک کانال صوتی باشید!", message.channel);
     const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue)return sendError("There is nothing playing that I could skip for you.", message.channel);
+    if (!serverQueue)return sendError("چیزی در حال پخش نیست که بتوانم برای شما از آن بگذرم.", message.channel);
         if(!serverQueue.connection)return
 if(!serverQueue.connection.dispatcher)return
      if (serverQueue && !serverQueue.playing) {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume();
       let xd = new MessageEmbed()
-      .setDescription("▶ Resumed the music for you!")
+      .setDescription("▶ اهنگ برای شما ادامه داده شد")
       .setColor("YELLOW")
-      .setTitle("Music has been Resumed!")
+      .setTitle("اهنگ ادامه داده شد")
        
    return message.channel.send(xd).catch(err => console.log(err));
       
@@ -34,7 +34,7 @@ if(!serverQueue.connection.dispatcher)return
       } catch (error) {
         serverQueue.voiceChannel.leave()
         message.client.queue.delete(message.guild.id);
-        return sendError(`:notes: The player has stopped and the queue has been cleared.: ${error}`, message.channel);
+        return sendError(`:notes: بازیکن متوقف شده و صف پاک شده است.: ${error}`, message.channel);
       }
     message.react("✅")
   },
