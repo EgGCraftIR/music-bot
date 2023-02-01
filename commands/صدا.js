@@ -5,7 +5,7 @@ module.exports = {
   info: {
     name: "صدا",
     description: "برای کنترل کردن صدای موزیک",
-    usage: "[volume]",
+    usage: "[صدا]",
     aliases: ["ص", "صد"],
   },
 
