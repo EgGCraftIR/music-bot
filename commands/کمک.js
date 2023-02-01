@@ -4,7 +4,7 @@ module.exports = {
     info: {
         name: "کمک",
         description: "برای دیدن تمامی دستورات بات ",
-        usage: "[command]",
+        usage: "[دستور]",
         aliases: ["دستورات", "کمک کن", "لطفا کمک کن"]
     },
 

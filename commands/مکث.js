@@ -25,6 +25,6 @@ module.exports = {
       .setTitle("اهنگ مکث کرد!")
       return message.channel.send(xd);
     }
-    return sendError("کسی نیست.", message.channel);
+    return sendError("اهنگی درحال پخش نیست.", message.channel);
   },
 };
