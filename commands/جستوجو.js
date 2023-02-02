@@ -34,7 +34,8 @@ module.exports = {
                         .setColor("BLUE")
                         .setAuthor(`نتیجه ها برای \"${args.join(" ")}\"`, message.author.displayAvatarURL())
                         .setDescription(`${searched.map(video2 => `**\`${++index}\`  |** [\`${video2.title}\`](${video2.url}) - \`${video2.durationFormatted}\``).join("\n")}`)
-                        .setFooter("تعداد عدد ها را برای اضافه کردن به صف انتخاب کنید");
+                        .setFooter("تعداد عدد ها را برای اضافه کردن به صف انتخاب کنید")
+                        .setImage('https://cdn.glitch.global/1aeb3279-ad5b-4159-bd08-aafdd1fd0f22/3610-among-us-orange.png?v=1675334743129');
                     // eslint-disable-next-line max-depth
                     message.channel.send(embedPlay).then(m => m.delete({
                         timeout: 15000
