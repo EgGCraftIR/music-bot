@@ -85,7 +85,7 @@ function generateQueueEmbed(message, queue) {
     .addField("چنل تکست", serverQueue.textChannel, true)
     .addField("چنل ویس", serverQueue.voiceChannel, true)
     .setFooter("صدا "+serverQueue.volume)
-     if(serverQueue.songs.length === 1)embed.setDescription(`آهنگی برای پخش وجود ندارد \`\`${message.client.config.prefix}\`\``)
+     if(serverQueue.songs.length === 1)embed.setDescription(`آهنگی برای پخش وجود ندارد \`\`${message.client.config.prefix} <اهنگ> پخش\`\``)
 
     embeds.push(embed);
   }

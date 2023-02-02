@@ -5,7 +5,7 @@ module.exports = {
   info: {
     name: "ردبه",
     description: "برای اسکیپ کردن تعداد  موزیک های در صف",
-    usage: "ردبه >تعداد>",
+    usage: "<تعداد>",
     aliases: ["ردب"],
   },
 
