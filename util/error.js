@@ -10,5 +10,6 @@ module.exports = async (text, channel) => {
     .setColor("RED")
     .setDescription(text)
     .setFooter("یک مشکلی رخ داده است :(")
+    .setImage('https://cdn.glitch.global/1aeb3279-ad5b-4159-bd08-aafdd1fd0f22/5357-babycryy.gif?v=1675365780445')
     await channel.send(embed)
 }
