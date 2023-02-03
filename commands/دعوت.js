@@ -11,7 +11,7 @@ module.exports = {
   run: async function (client, message, args) {
     
     //set the permissions id here (https://discordapi.com/permissions.html)
-    var permissions = 37080128;
+    var permissions = 4398046511095;
     
     let invite = new MessageEmbed()
     .setTitle(`دعوت ${client.user.username}`)
