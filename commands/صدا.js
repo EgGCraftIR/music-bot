@@ -23,6 +23,7 @@ module.exports = {
     .setDescription(`صدا تنظیم شد بر روی: **${args[0]/1}/100**`)
     .setAuthor("تنظیم کننده صدا", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
     .setColor("BLUE")
+    .setImage('https://cdn.glitch.global/1aeb3279-ad5b-4159-bd08-aafdd1fd0f22/9003-bananadance.gif?v=1675460631547')
     return message.channel.send(xd);
   },
 };

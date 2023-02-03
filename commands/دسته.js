@@ -17,7 +17,7 @@ module.exports = {
     .setTitle('دسته بندی قابلیت ها')
     .addField("برای دیدن کامند های موزیک بات", "!کمک")
     .addField("برای دیدن دستورات تیکت","!help")
-    .addField("فحش!","برای دیدن دستورات زد فحش بات")
+    .addField("برای دیدن دستورات زد فحش بات","!فحش")
     return message.channel.send(invite);
   },
 };
