@@ -16,7 +16,8 @@ module.exports = {
     let invite = new MessageEmbed()
     .setTitle('دسته بندی قابلیت ها')
     .addField("برای دیدن کامند های موزیک بات", "!کمک")
-    .addField("!help", " برای دیدن کامند های تیکت بات")
+    .addField("برای دیدن دستورات تیکت","!help")
+    .addField("فحش!","برای دیدن دستورات زد فحش بات")
     return message.channel.send(invite);
   },
 };
