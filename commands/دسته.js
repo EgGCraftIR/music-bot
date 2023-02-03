@@ -14,11 +14,9 @@ module.exports = {
     var permissions = 37080128;
     
     let invite = new MessageEmbed()
-    .setTitle(`دعوت ${client.user.username}`)
-    .setDescription(`منو واسه سرورت میخوای ؟ پس چرا اینوایت نمیدی ؟ \n\n [Invite Link](https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=${permissions}&scope=bot)`)
-    .setURL(`https://discord.com/oauth2/authorize?client_id=${client.user.id}&permissions=${permissions}&scope=bot`)
-    .setColor("BROWN")
-    .setImage('https://cdn.glitch.global/1aeb3279-ad5b-4159-bd08-aafdd1fd0f22/invite.gif?v=1675334358610')
+    .setTitle('دسته بندی قابلیت ها')
+    .addField("برای دیدن کامند های موزیک بات", "!کمک")
+    .addField("!help", " برای دیدن کامند های تیکت بات")
     return message.channel.send(invite);
   },
 };
