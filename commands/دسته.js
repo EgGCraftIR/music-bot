@@ -18,6 +18,7 @@ module.exports = {
     .addField("برای دیدن کامند های موزیک بات", "!کمک")
     .addField("برای دیدن دستورات تیکت","!help")
     .addField("برای دیدن دستورات زد فحش بات","!فحش")
+    .addField("", "")
     return message.channel.send(invite);
   },
 };
