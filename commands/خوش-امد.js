@@ -14,8 +14,8 @@ module.exports = {
     var permissions = 37080128;
     
     let invite = new MessageEmbed()
-    .addField("برای دیدن کامند های موزیک بات", "!setchannel")
-    .addField("برای تنظ","!setbackground")
+    .addField("برای تنظیم کانال", "!setchannel")
+    .addField("برای تنظیم پش زمینه","!setbackground")
     .addField("برای دیدن پش زمینه","!background")
     .addField("برای دیدن کانال انتخاب شده", "!channel")
     return message.channel.send(invite);
