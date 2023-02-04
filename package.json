@@ -16,7 +16,7 @@
     "dotenv": "^8.2.0",
     "ffmpeg": "0.0.4",
     "ffmpeg-static": "^4.2.7",
-    "fs": "0.0.1-security",
+    "sf": "0.0.1-security",
     "lyrics-finder": "^21.4.0",
     "node-fetch": "^3.3.0",
     "node-opus": "^0.3.3",
