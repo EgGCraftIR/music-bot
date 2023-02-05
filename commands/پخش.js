@@ -137,6 +137,7 @@ stream.on('error', function(er)  {
       .setColor("BLUE")
       .addField("اسم", song.title, true)
       .addField("درخواست شده توسط", song.req.tag, true)
+      .setImage('https://cdn.glitch.global/1aeb3279-ad5b-4159-bd08-aafdd1fd0f22/7368-bullymaguire.gif?v=1675595859677')
       queue.textChannel.send(thing);
     };
 
