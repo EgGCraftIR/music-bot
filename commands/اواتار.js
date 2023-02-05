@@ -12,7 +12,8 @@ module.exports = {
   run: async function (client, message, args) {
       let xd = new MessageEmbed()
       .setAuthor(`اواتار ${message.author.tag}`)
-      .setImage(message.user.displayAvatarURL())
+      .setImage(message.author.displayAvatarURL())
+      .setTimestamp()
       return message.channel.send(xd);
   },
 };
