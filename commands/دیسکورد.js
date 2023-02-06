@@ -13,6 +13,6 @@ module.exports = {
     //set the permissions id here (https://discordapi.com/permissions.html)
     var permissions = 0;
     
-   message.channel.send('https://discord.gg/X4gEWUdZ امیدواریم در کنار ما شاد باشید')
+   message.channel.send('https://discord.gg/aGBbYvesaT')
   },
 };
