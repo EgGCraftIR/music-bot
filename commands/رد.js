@@ -4,7 +4,7 @@ const sendError = require("../util/error");
 module.exports = {
   info: {
     name: "رد",
-    description: "برای رد کردن اهنگ انخاب شده",
+    description: "برای رد کردن اهنگ انتخاب شده",
     usage: "",
     aliases: ["ر"],
   },
