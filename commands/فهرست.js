@@ -30,7 +30,7 @@ module.exports = {
 		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
 			try {
 				const playlist = await ytpl(url.split("list=")[1]);
-				if (!playlist) return sendError("Playlist not found", message.channel)
+				if (!playlist) return sendError("لیست پخشت پیدا نشد", message.channel)
 				const videos = await playlist.items;
 				for (const video of videos) {
 					// eslint-disable-line no-await-in-loop
@@ -63,7 +63,7 @@ module.exports = {
 					.setAuthor("لیست پخش به صف اذافه شد", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
 					.setThumbnail(songInfo.thumbnail)
 					.setColor("GREEN")
-					.setDescription(`✅  **|**  Playlist: **\`${songInfo.title}\`** has been added \`${songInfo.videoCount}\` video to the queue`)
+					.setDescription(`✅  **|**  لیست پخش: **\`${songInfo.title}\`** اضافه شد \`${songInfo.videoCount}\` ویدیو به صف`)
 				return message.channel.send(thing)
 			} catch (error) {
 				return sendError("یک خطای غیر منتظره رخ داده است",message.channel).catch(console.error);
@@ -162,7 +162,7 @@ stream.on('error', function(er)  {
 
     dispatcher.setVolume(serverQueue.volume / 100);
 let thing = new MessageEmbed()
-				.setAuthor("Started Playing Music!", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
+				.setAuthor("پخش اهنگ شروع شد!", "https://raw.githubusercontent.com/SudhanPlayz/Discord-MusicBot/master/assets/Music.gif")
 				.setThumbnail(song.img)
 				.setColor("BLUE")
 				.addField("اسم", song.title, true)

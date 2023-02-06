@@ -23,6 +23,7 @@ module.exports = {
       .setDescription("⏸ موزیک برای شما  مکث شد!")
       .setColor("YELLOW")
       .setTitle("اهنگ مکث کرد!")
+      .setImage('https://cdn.glitch.global/1aeb3279-ad5b-4159-bd08-aafdd1fd0f22/3005-shut-up.gif?v=1675596058559')
       return message.channel.send(xd);
     }
     return sendError("اهنگی درحال پخش نیست.", message.channel);
