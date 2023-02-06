@@ -18,6 +18,6 @@ module.exports = {
     .setTimestamp()
     .setFooter('ممنون از شما')
     
-   message.channel.send('https://discord.gg/aGBbYvesaT', embed)
+   return message.channel.send('https://discord.gg/aGBbYvesaT' , embed)
   },
 };
