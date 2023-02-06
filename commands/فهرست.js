@@ -26,7 +26,7 @@ module.exports = {
 		if (!permissions.has("CONNECT")) return sendError("من نمی توانم به کانال صوتی شما متصل شوم، مطمئن شوید که مجوزهای لازم را دارم!", message.channel);
 		if (!permissions.has("SPEAK")) return sendError("نمی توانم در این کانال صوتی صحبت کنم، مطمئن شوید که مجوزهای مناسب را دارم!", message.channel);
 
-		if (!searchString||!url) return sendError(`استفاده کنید از: ${message.client.config.prefix}playlist <YouTube Playlist URL | Playlist Name>`, message.channel);
+		if (!searchString||!url) return sendError(`استفاده کنید از: ${message.client.config.prefix}playlist <یو ار ال لیست پخش یوتیوب | اسم لیست پخش>`, message.channel);
 		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
 			try {
 				const playlist = await ytpl(url.split("list=")[1]);
