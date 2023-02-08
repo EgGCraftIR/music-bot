@@ -16,6 +16,7 @@ module.exports = {
     let abbas = new MessageEmbed()
     .addField('!addword',"اضافه کردن کلمه به فهرست سیاه")
     .addField('!delword',"حذف کلمه از فهرست سیاه")
+    .addField('!ping', "دیدن آمار بات")
     return message.channel.send(abbas);
   },
 };
