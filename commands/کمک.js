@@ -19,7 +19,7 @@ module.exports = {
         let embed = new MessageEmbed()
         .setColor("YELLOW")
         .setDescription(allcmds)
-        .setFooter(`اگه دیدید کامندی کار نمیکنه بدونین درحال ساخته . در صورت دریافت مشکل میتوانید به سرور دیسکورد ما  جوین بدید :https://discord.gg/frVDXRAs`)
+        .setFooter(`درحال مشاهده ${client.guilds.cache.size} سرو`)
         .setAuthor('❤با تشکر از اینکه بات ما رو به سرورتون اینوایت دادید. با این کار مارو به وریفای نزدیک میکنید')
         .setImage('https://images.macrumors.com/t/hi1_a2IdFGRGMsJ0x31SdD_IcRk=/1600x/article-new/2018/05/apple-music-note.jpg')
         if(!args[0])return message.channel.send(embed)
