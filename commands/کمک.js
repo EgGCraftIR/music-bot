@@ -19,7 +19,7 @@ module.exports = {
         let embed = new MessageEmbed()
         .setColor("YELLOW")
         .setDescription(allcmds)
-        .setAuthor('❤با تشکر از اینکه بات ما رو به سرورتون اینوایت دادید. با این کار مارو به وریفای نزدیک میکنید')
+        .setAuthor('❤ممنون از اینکه بات ما رو به سرورتون اضافه کردید.')
         .setImage('https://images.macrumors.com/t/hi1_a2IdFGRGMsJ0x31SdD_IcRk=/1600x/article-new/2018/05/apple-music-note.jpg')
         .setFooter(`درحال مشاهده ${client.guilds.cache.size} سرور`)
         if(!args[0])return message.channel.send(embed)
