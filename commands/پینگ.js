@@ -11,7 +11,7 @@ module.exports = {
 
   run: async function (client, message, args) {
       let xd = new MessageEmbed()
-      .setDescription(`**پینگ بات:** ${client.ws.ping} | **سرور های درحال مشاهده:** ${client.guilds}`)
+      .setDescription(`**پینگ بات:** ~~${client.ws.ping}~~ | **سرور های درحال مشاهده:** ~~${client.guilds.cache.size}~~`)
       .setTimestamp()
       return message.channel.send(xd);
   },
