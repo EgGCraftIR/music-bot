@@ -1,5 +1,6 @@
 require("dotenv").config();//Loading .env
 const fs = require("fs");
+const MessageEmbed = require("discord.js");
 const { Collection, Client } = require("discord.js");
 
 const client = new Client();//Making a discord bot client
@@ -32,6 +33,7 @@ fs.readdir("./commands/", (err, files) => {
     console.log("Loading Command: "+commandName)
   });
 });
+
 //auto pinging
 
 //thats it
