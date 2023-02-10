@@ -15,8 +15,8 @@ module.exports = {
     const serverQueue = message.client.queue.get(message.guild.id);
     if (!serverQueue) return sendError("کسی داخل این ویس چنل نیست.", message.channel);
     if (!args[0])return message.channel.send(`صدای خودکار این است: **${serverQueue.volume}**`);
-     if(isNaN(args[0])) return message.channel.send(':notes: Numbers only!').catch(err => console.log(err));
-    if(parseInt(args[0]) > 150 ||(args[0]) < 0) return sendError('You can\'t set the volume more than 150. or lower than 0',message.channel).catch(err => console.log(err));
+     if(isNaN(args[0])) return message.channel.send(':notes: !لطفا از عدد استفاده کنید').catch(err => console.log(err));
+    if(parseInt(args[0]) > 150 ||(args[0]) < 0) return sendError('شما نمی توانید صدا را از 150 بیشتر و از 0 کمتر تنظیم کنید',message.channel).catch(err => console.log(err));
     serverQueue.volume = args[0]; 
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[0] / 100);
     let xd = new MessageEmbed()
